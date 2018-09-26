@@ -20,7 +20,6 @@ namespace CourseApp.API.Controllers
         public ValuesController(DataContext context)
         {
             _context = context;
-
         }
         // GET api/values
         [HttpGet]
