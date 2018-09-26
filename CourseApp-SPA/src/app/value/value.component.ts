@@ -19,12 +19,14 @@ export class ValueComponent implements OnInit {
   ngOnInit() {
     this.getValues();
     // This goes to the api, gets the values and then stores them inside the values property above
+    // 'this' refers to the getValues method inside this class
   }
 
   getValues() {
     // The get part of the method returns observables, to view these you need to subscribe to them
     this.http.get('http://localhost:5000/api/values').subscribe(response => {
       this.values = response;
+      // 'this' is used to refer to the values property inside the class (class ValueComponent)
     }, error => {
       console.log(error);
     });
