@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CourseApp.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ namespace CourseApp.API.Controllers
     // http://localhost:5000/api/values  This URL would hit the first method (GET api/values) Assuming this is a GET URL
     // If the URL ended /values/5 this would hit the second method and that's what the browser would return
     // App knows to point to localhost:5000 because it's set in the Properties > launchSettings.json file
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -21,6 +23,7 @@ namespace CourseApp.API.Controllers
         {
             _context = context;
         }
+
         // GET api/values
         [HttpGet]
         // IActionResult allows us to return http responses to the client       
@@ -30,12 +33,13 @@ namespace CourseApp.API.Controllers
         {
             var values = await _context.Values.ToListAsync();
 
-            // await used to make it an async method and ToListAsync to 
+            // await used to make it an async method and ToListAsync instead of ToList because it's an async method
 
             return Ok(values);
         }
 
         // GET api/values/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
