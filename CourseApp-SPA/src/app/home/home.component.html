@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div *ngIf="!registerMode" style="text-align: center">
+    <h1>Find your Second Shooter</h1>
+    <p class="lead">Find photography and videography work. Sign up for all the stuff!</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-1" (click)="registerToggle()">Register</button>
+      <button class="btn btn-info btn-lg ml-1">Learn more</button>
+    </div>
+  </div>
+
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register></app-register>
+      </div>
+    </div>
+  </div>
+</div>

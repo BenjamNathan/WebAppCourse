@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-value',
-  templateUrl: './value.component.html',
-  styleUrls: ['./value.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ValueComponent implements OnInit {
+export class HomeComponent implements OnInit {
+  registerMode = false;
   values: any;
   // This is a values property of type any
   // any allows us ot be flexible with what is contained inside the values
@@ -20,6 +21,10 @@ export class ValueComponent implements OnInit {
     this.getValues();
     // This goes to the api, gets the values and then stores them inside the values property above
     // 'this' refers to the getValues method inside this class
+  }
+
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 
   getValues() {

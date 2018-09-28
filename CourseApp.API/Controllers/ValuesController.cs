@@ -25,6 +25,7 @@ namespace CourseApp.API.Controllers
         }
 
         // GET api/values
+        [AllowAnonymous]
         [HttpGet]
         // IActionResult allows us to return http responses to the client       
         // Made asynchronous because it keeps the connection open allowing multiple request to be performed at the same time
