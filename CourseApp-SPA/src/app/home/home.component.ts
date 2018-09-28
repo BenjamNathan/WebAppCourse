@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   // Need to inject httpclientserver into the constructor to be able to make use of it inside the class
   // http is the variable name. This intialises the httpclient
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Then use the ngOnInit method to get data from the api because the construtor happens too early
   ngOnInit() {
@@ -24,17 +24,24 @@ export class HomeComponent implements OnInit {
   }
 
   registerToggle() {
-    this.registerMode = !this.registerMode;
+    this.registerMode = true;
   }
 
   getValues() {
     // The get part of the method returns observables, to view these you need to subscribe to them
-    this.http.get('http://localhost:5000/api/values').subscribe(response => {
-      this.values = response;
-      // 'this' is used to refer to the values property inside the class (class ValueComponent)
-    }, error => {
-      console.log(error);
-    });
+    this.http.get('http://localhost:5000/api/values').subscribe(
+      response => {
+        this.values = response;
+        // 'this' is used to refer to the values property inside the class (class ValueComponent)
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
+    // registerMode (rhs) is assign to false from the register component and then gets assigned to the registerMode in this component
+  }
 }
