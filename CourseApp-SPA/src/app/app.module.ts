@@ -12,9 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
-import { MemberListComponent } from './member-list/member-list.component';
-import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { appRoutes } from './routes';
+import { AvailableShootersListComponent } from './available-shooters-list/available-shooters-list.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 
 @NgModule({
    declarations: [
@@ -22,16 +23,16 @@ import { MessagesComponent } from './messages/messages.component';
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      MemberListComponent,
-      ListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      AvailableShootersListComponent,
+      FavouritesComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
       BsDropdownModule.forRoot(),
-      RouterModule
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,
