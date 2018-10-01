@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   // Then use the ngOnInit method to get data from the api because the construtor happens too early
   ngOnInit() {
-    this.getValues();
+    // this.getValues(); Commented out as getValues method is also commented out but keeping in for reference
     // This goes to the api, gets the values and then stores them inside the values property above
     // 'this' refers to the getValues method inside this class
   }
@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
   registerToggle() {
     this.registerMode = true;
   }
+
+  /*
+  Commented out as not needed but keeping in for notes
 
   getValues() {
     // The get part of the method returns observables, to view these you need to subscribe to them
@@ -39,7 +42,7 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
+*/
   cancelRegisterMode(registerMode: boolean) {
     this.registerMode = registerMode;
     // registerMode (rhs) is assign to false from the register component and then gets assigned to the registerMode in this component

@@ -7,7 +7,7 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @Input() valuesFromHome: any;
+  // @Input() valuesFromHome: any; Commented out as removed from page but keeping in for reference (HTML code removed though)
   // This is to receive properties into the child component. The values come from the home html component
   // The same name needs to be used in the home html and the register html
 
