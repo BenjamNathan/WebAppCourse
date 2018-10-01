@@ -16,6 +16,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { AvailableShootersListComponent } from './available-shooters-list/available-shooters-list.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
    declarations: [
@@ -37,7 +38,8 @@ import { FavouritesComponent } from './favourites/favourites.component';
    providers: [
       AuthService,
       ErrorInterceptorProvider,
-      AlertifyService
+      AlertifyService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent
