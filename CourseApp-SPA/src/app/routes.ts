@@ -6,7 +6,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
-    { path: 'availableShooters', component: AvailableShootersListComponent},
+    { path: 'available-shooters', component: AvailableShootersListComponent},
     { path: 'messages', component: MessagesComponent},
     { path: 'favourites', component: FavouritesComponent},
     { path: '**', redirectTo: 'home', pathMatch: 'full'}
