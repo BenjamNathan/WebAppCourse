@@ -7,6 +7,7 @@ import { AuthGuard } from './_guards/auth.guard';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
     {
         path: '',
         runGuardsAndResolvers: 'always',
@@ -17,7 +18,7 @@ export const appRoutes: Routes = [
         ]
     },
     { path: 'available-shooters', component: AvailableShootersListComponent, canActivate: [AuthGuard]},
-    { path: '**', redirectTo: 'home', pathMatch: 'full'}
+    { path: '**', redirectTo: 'home', pathMatch: 'full'},
     // This means that want to match the full home path to the wild card **. ** means anything that doesn't match a previous path
     // Could put available-shooters in children array but this shows the 2 different methods to implement a guard
     // For larger applications the children array is the better choice
