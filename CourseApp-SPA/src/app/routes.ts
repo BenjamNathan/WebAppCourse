@@ -4,6 +4,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AvailableShootersListComponent } from './available-shooters/available-shooters-list/available-shooters-list.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { AvailableShooterDetailComponent } from './available-shooters/available-shooter-detail/available-shooter-detail.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -14,7 +15,9 @@ export const appRoutes: Routes = [
         canActivate: [AuthGuard],
         children: [
             { path: 'messages', component: MessagesComponent},
-            { path: 'favourites', component: FavouritesComponent}
+            { path: 'favourites', component: FavouritesComponent},
+            { path: 'available-shooters/:id', component: AvailableShooterDetailComponent }
+            // :id means that a variable is going to be passed in
         ]
     },
     { path: 'available-shooters', component: AvailableShootersListComponent, canActivate: [AuthGuard]},

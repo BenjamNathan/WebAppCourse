@@ -20,6 +20,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { AvailableShooterCardComponent } from './available-shooters/available-shooter-card/available-shooter-card.component';
+import { AvailableShooterDetailComponent } from './available-shooters/available-shooter-detail/available-shooter-detail.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -34,6 +35,7 @@ export function tokenGetter() {
       MessagesComponent,
       AvailableShootersListComponent,
       AvailableShooterCardComponent,
+      AvailableShooterDetailComponent,
       FavouritesComponent
    ],
    imports: [

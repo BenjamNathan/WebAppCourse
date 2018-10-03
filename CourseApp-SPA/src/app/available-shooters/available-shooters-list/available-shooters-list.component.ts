@@ -25,13 +25,4 @@ export class AvailableShootersListComponent implements OnInit {
       this.alertify.error(error);
     });
   }
-
-  loadUser(id) {
-    this.userService.getUser(id).subscribe((user: User) => {
-      this.users[id] = user;
-    }, error => {
-      this.alertify.error(error);
-    });
-  }
-
 }
