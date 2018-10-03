@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -19,6 +20,10 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { AvailableShooterCardComponent } from './available-shooters/available-shooter-card/available-shooter-card.component';
+
+export function tokenGetter() {
+    return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
@@ -36,7 +41,14 @@ import { AvailableShooterCardComponent } from './available-shooters/available-sh
       HttpClientModule,
       FormsModule,
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      JwtModule.forRoot({
+          config: {
+              tokenGetter: tokenGetter,
+              whitelistedDomains: ['localhost:5000'],
+              blacklistedRoutes: ['localhost:5000/auth']
+          }
+      })
    ],
    providers: [
       AuthService,
