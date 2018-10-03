@@ -18,7 +18,7 @@ namespace CourseApp.API.Helpers
                     opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
                 })
                 .ForMember(dest => dest.Age, opt => {
-                    opt.ResolveUsing(d => d.DateOfBirth.)
+                    opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
                 });
             // dest is short for destination as PhotoURL is a property in the UserForListDto
             // opt is short for options. Map from is where you specify where to get the property from
@@ -29,6 +29,9 @@ namespace CourseApp.API.Helpers
                 .ForMember(dest => dest.PhotoUrl, opt =>
                 {
                     opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
+                })
+                .ForMember(dest => dest.Age, opt => {
+                    opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
                 });
             CreateMap<Photo, PhotosForDetailedDto>();
         }
