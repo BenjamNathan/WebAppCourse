@@ -13,5 +13,5 @@ export interface User {
     introduction?: string;
     equipment?: string;
     experience?: string;
-    photoS?: Photo[];
+    photos?: Photo[];
 }
