@@ -5,6 +5,8 @@ import { AvailableShootersListComponent } from './available-shooters/available-s
 import { FavouritesComponent } from './favourites/favourites.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { AvailableShooterDetailComponent } from './available-shooters/available-shooter-detail/available-shooter-detail.component';
+import { AvailableShooterDetailResolver } from './_resolvers/available-shooter-detail.resolver';
+import { AvailableShooterListResolver } from './_resolvers/available-shooter-list.resolver';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -16,11 +18,13 @@ export const appRoutes: Routes = [
         children: [
             { path: 'messages', component: MessagesComponent},
             { path: 'favourites', component: FavouritesComponent},
-            { path: 'available-shooters/:id', component: AvailableShooterDetailComponent }
+            { path: 'available-shooters/:id', component: AvailableShooterDetailComponent, resolve: {user: AvailableShooterDetailResolver} }
             // :id means that a variable is going to be passed in
         ]
     },
-    { path: 'available-shooters', component: AvailableShootersListComponent, canActivate: [AuthGuard]},
+    // tslint:disable-next-line:max-line-length
+    { path: 'available-shooters', component: AvailableShootersListComponent,
+        resolve: {users: AvailableShooterListResolver}, canActivate: [AuthGuard]},
     { path: '**', redirectTo: 'home', pathMatch: 'full'},
     // This means that want to match the full home path to the wild card **. ** means anything that doesn't match a previous path
     // Could put available-shooters in children array but this shows the 2 different methods to implement a guard

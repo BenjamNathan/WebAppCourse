@@ -21,6 +21,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { AvailableShooterCardComponent } from './available-shooters/available-shooter-card/available-shooter-card.component';
 import { AvailableShooterDetailComponent } from './available-shooters/available-shooter-detail/available-shooter-detail.component';
+import { AvailableShooterDetailResolver } from './_resolvers/available-shooter-detail.resolver';
+import { AvailableShooterListResolver } from './_resolvers/available-shooter-list.resolver';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -58,7 +60,9 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
-      UserService
+      UserService,
+      AvailableShooterDetailResolver,
+      AvailableShooterListResolver
    ],
    bootstrap: [
       AppComponent

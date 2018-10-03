@@ -15,9 +15,13 @@ export class AvailableShooterDetailComponent implements OnInit {
   constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data['user'];
+    });
   }
 
+  /*
+  Commented out because no longer needed thanks to the available-shooter-detail resolver
   loadUser() {
     // The + turns the string to a number
     this.userService.getUser(+this.route.snapshot.params['id']).subscribe(
@@ -28,4 +32,5 @@ export class AvailableShooterDetailComponent implements OnInit {
       }
     );
   }
+  */
 }
