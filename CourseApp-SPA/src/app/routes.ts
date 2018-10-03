@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
-import { AvailableShootersListComponent } from './available-shooters-list/available-shooters-list.component';
+import { AvailableShootersListComponent } from './available-shooters/available-shooters-list/available-shooters-list.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { AuthGuard } from './_guards/auth.guard';
 

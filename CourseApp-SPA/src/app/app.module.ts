@@ -14,10 +14,11 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
-import { AvailableShootersListComponent } from './available-shooters-list/available-shooters-list.component';
+import { AvailableShootersListComponent } from './available-shooters/available-shooters-list/available-shooters-list.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
+import { AvailableShooterCardComponent } from './available-shooters/available-shooter-card/available-shooter-card.component';
 
 @NgModule({
    declarations: [
@@ -27,6 +28,7 @@ import { UserService } from './_services/user.service';
       RegisterComponent,
       MessagesComponent,
       AvailableShootersListComponent,
+      AvailableShooterCardComponent,
       FavouritesComponent
    ],
    imports: [
