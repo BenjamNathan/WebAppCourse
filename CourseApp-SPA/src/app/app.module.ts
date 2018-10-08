@@ -24,6 +24,8 @@ import { AvailableShooterCardComponent } from './available-shooters/available-sh
 import { AvailableShooterDetailComponent } from './available-shooters/available-shooter-detail/available-shooter-detail.component';
 import { AvailableShooterDetailResolver } from './_resolvers/available-shooter-detail.resolver';
 import { AvailableShooterListResolver } from './_resolvers/available-shooter-list.resolver';
+import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
+import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -39,7 +41,8 @@ export function tokenGetter() {
       AvailableShootersListComponent,
       AvailableShooterCardComponent,
       AvailableShooterDetailComponent,
-      FavouritesComponent
+      FavouritesComponent,
+      AvailableShooterEditComponent
    ],
    imports: [
       BrowserModule,
@@ -64,7 +67,8 @@ export function tokenGetter() {
       AuthGuard,
       UserService,
       AvailableShooterDetailResolver,
-      AvailableShooterListResolver
+      AvailableShooterListResolver,
+      AvailableShooterEditResolver
    ],
    bootstrap: [
       AppComponent

@@ -7,6 +7,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AvailableShooterDetailComponent } from './available-shooters/available-shooter-detail/available-shooter-detail.component';
 import { AvailableShooterDetailResolver } from './_resolvers/available-shooter-detail.resolver';
 import { AvailableShooterListResolver } from './_resolvers/available-shooter-list.resolver';
+import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
+import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -16,10 +18,11 @@ export const appRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard],
         children: [
-            { path: 'messages', component: MessagesComponent},
-            { path: 'favourites', component: FavouritesComponent},
-            { path: 'available-shooters/:id', component: AvailableShooterDetailComponent, resolve: {user: AvailableShooterDetailResolver} }
+            { path: 'available-shooters/:id', component: AvailableShooterDetailComponent, resolve: {user: AvailableShooterDetailResolver} },
             // :id means that a variable is going to be passed in
+            { path: 'available-shooter/edit', component: AvailableShooterEditComponent, resolve: {user: AvailableShooterEditResolver} },
+            { path: 'messages', component: MessagesComponent},
+            { path: 'favourites', component: FavouritesComponent}
         ]
     },
     // tslint:disable-next-line:max-line-length
