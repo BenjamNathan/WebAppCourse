@@ -26,6 +26,7 @@ import { AvailableShooterDetailResolver } from './_resolvers/available-shooter-d
 import { AvailableShooterListResolver } from './_resolvers/available-shooter-list.resolver';
 import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
 import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -68,7 +69,8 @@ export function tokenGetter() {
       UserService,
       AvailableShooterDetailResolver,
       AvailableShooterListResolver,
-      AvailableShooterEditResolver
+      AvailableShooterEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent

@@ -9,6 +9,7 @@ import { AvailableShooterDetailResolver } from './_resolvers/available-shooter-d
 import { AvailableShooterListResolver } from './_resolvers/available-shooter-list.resolver';
 import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
 import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -20,16 +21,16 @@ export const appRoutes: Routes = [
         children: [
             { path: 'available-shooters/:id', component: AvailableShooterDetailComponent, resolve: {user: AvailableShooterDetailResolver} },
             // :id means that a variable is going to be passed in
-            { path: 'available-shooter/edit', component: AvailableShooterEditComponent, resolve: {user: AvailableShooterEditResolver} },
+            { path: 'available-shooter/edit', component: AvailableShooterEditComponent,
+                resolve: {user: AvailableShooterEditResolver}, canDeactivate: [PreventUnsavedChanges] },
             { path: 'messages', component: MessagesComponent},
             { path: 'favourites', component: FavouritesComponent}
         ]
     },
-    // tslint:disable-next-line:max-line-length
     { path: 'available-shooters', component: AvailableShootersListComponent,
         resolve: {users: AvailableShooterListResolver}, canActivate: [AuthGuard]},
     { path: '**', redirectTo: 'home', pathMatch: 'full'},
-    // This means that want to match the full home path to the wild card **. ** means anything that doesn't match a previous path
+    // This means that we want to match the full home path to the wild card **. ** means anything that doesn't match a previous path
     // Could put available-shooters in children array but this shows the 2 different methods to implement a guard
     // For larger applications the children array is the better choice
 ];
