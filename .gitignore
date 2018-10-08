@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
+*.rsuser
 *.suo
 *.user
 *.userosscache
@@ -52,7 +53,6 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-*.cache
 
 # StyleCop
 StyleCopReport.xml
@@ -247,7 +247,6 @@ ServiceFabricBackup/
 *.mdf
 *.ldf
 *.ndf
-*.sqlite
 
 # Business Intelligence projects
 *.rdl.data
@@ -333,3 +332,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+*.cache
+*.sqlite
