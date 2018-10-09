@@ -27,6 +27,7 @@ import { AvailableShooterListResolver } from './_resolvers/available-shooter-lis
 import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
 import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './available-shooters/photo-editor/photo-editor.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -43,7 +44,8 @@ export function tokenGetter() {
       AvailableShooterCardComponent,
       AvailableShooterDetailComponent,
       FavouritesComponent,
-      AvailableShooterEditComponent
+      AvailableShooterEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
