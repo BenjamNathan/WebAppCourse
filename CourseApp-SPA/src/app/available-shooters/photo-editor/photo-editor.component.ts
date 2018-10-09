@@ -35,5 +35,26 @@ export class PhotoEditorComponent implements OnInit {
       autoUpload: false,
       maxFileSize: 10 * 1024 * 1024
     });
+
+    this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; };
+    // This is put in place because of a cors error in the dev tools. Because we're not using credentials
+    // in the StartUp class in the app.UseCors method a bug with ng2 file upload meant there was an error
+
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
+      if (response) {
+        // JSON.parse turns response into an object because the response is a string but the photo is an object
+        const res: Photo = JSON.parse(response);
+        // creating a photo object from the response given after uploading a photo. See diagram at
+        // beginning of module for explanation
+        const photo = {
+          id: res.id,
+          url: res.url,
+          dateAdded: res.dateAdded,
+          description: res.description,
+          isMain: res.isMain
+        };
+        this.photos.push(photo);
+      }
+    };
   }
 }
