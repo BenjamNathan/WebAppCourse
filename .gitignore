@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
+*.rsuser
 *.suo
 *.user
 *.userosscache
@@ -63,6 +64,7 @@ StyleCopReport.xml
 *.ilk
 *.meta
 *.obj
+*.bin
 *.iobj
 *.pch
 *.pdb
@@ -331,3 +333,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+*.cache
+*.sqlite

@@ -41,6 +41,7 @@ namespace CourseApp.API
                     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper();
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository, AuthRepository>();
@@ -84,7 +85,7 @@ namespace CourseApp.API
             }
 
             // app.UseHttpsRedirection();
-            // seeder.SeedUsers(); Commented out because only need to see users the once. Will uncomment if need to do it again
+            // seeder.SeedUsers(); // Commented out because only need to see users the once. Will uncomment if need to do it again
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseMvc();

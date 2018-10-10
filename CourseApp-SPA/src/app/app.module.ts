@@ -6,6 +6,7 @@ import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -24,6 +25,10 @@ import { AvailableShooterCardComponent } from './available-shooters/available-sh
 import { AvailableShooterDetailComponent } from './available-shooters/available-shooter-detail/available-shooter-detail.component';
 import { AvailableShooterDetailResolver } from './_resolvers/available-shooter-detail.resolver';
 import { AvailableShooterListResolver } from './_resolvers/available-shooter-list.resolver';
+import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
+import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './available-shooters/photo-editor/photo-editor.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -39,7 +44,9 @@ export function tokenGetter() {
       AvailableShootersListComponent,
       AvailableShooterCardComponent,
       AvailableShooterDetailComponent,
-      FavouritesComponent
+      FavouritesComponent,
+      AvailableShooterEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -49,6 +56,7 @@ export function tokenGetter() {
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
+      FileUploadModule,
       JwtModule.forRoot({
           config: {
               tokenGetter: tokenGetter,
@@ -64,7 +72,9 @@ export function tokenGetter() {
       AuthGuard,
       UserService,
       AvailableShooterDetailResolver,
-      AvailableShooterListResolver
+      AvailableShooterListResolver,
+      AvailableShooterEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent
