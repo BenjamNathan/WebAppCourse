@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -16,18 +17,27 @@ export class RegisterComponent implements OnInit {
   // Output properties emit events so need to create a new EventEmitter
 
   model: any = {};
+  registerForm: FormGroup;
 
   constructor(private authService: AuthService, private alertify: AlertifyService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.registerForm = new FormGroup({
+      username: new FormControl,
+      password: new FormControl(),
+      confirmPassword: new FormControl()
+    });
+  }
 
   register() {
-    this.authService.register(this.model).subscribe(() => {
-      this.alertify.success('Registration Successful');
-      // Using emptpy brackets because after this is successful no information is needed from the respoonse
-    }, error => {
-      this.alertify.error(error);
-    });
+
+    // this.authService.register(this.model).subscribe(() => {
+    //   this.alertify.success('Registration Successful');
+    //   // Using emptpy brackets because after this is successful no information is needed from the respoonse
+    // }, error => {
+    //   this.alertify.error(error);
+    // });
+    console.log(this.registerForm.value);
   }
 
   cancel() {
