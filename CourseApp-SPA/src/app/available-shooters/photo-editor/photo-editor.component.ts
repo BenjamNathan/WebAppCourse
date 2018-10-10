@@ -67,7 +67,12 @@ export class PhotoEditorComponent implements OnInit {
       this.currentMain = this.photos.filter(p => p.isMain === true)[0];
       this.currentMain.isMain = false;
       photo.isMain = true;
-      this.getAvailableShooterPhotoChange.emit(photo.url);
+      // this.getAvailableShooterPhotoChange.emit(photo.url); This was to emit an event that would change the main photo
+      // but not needed anymore as the image is subscribing from the authService
+      // Can remove the below if don't want an icon in the nav bar
+      this.authService.changeAvailableShooterPhoto(photo.url);
+      this.authService.currentUser.photoUrl = photo.url;
+      localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
     }, error => {
       this.alertify.error(error);
     });
