@@ -12,14 +12,16 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
   styleUrls: ['./photo-editor.component.css']
 })
 export class PhotoEditorComponent implements OnInit {
-  @Input() photos: Photo[];
-  @Output() getAvailableShooterPhotoChange = new EventEmitter<string>();
+  @Input()
+  photos: Photo[];
+  @Output()
+  getAvailableShooterPhotoChange = new EventEmitter<string>();
   uploader: FileUploader;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
   currentMain: Photo;
 
-  constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService) {}
 
   ngOnInit() {
     this.initialiseUploader();
@@ -40,7 +42,9 @@ export class PhotoEditorComponent implements OnInit {
       maxFileSize: 10 * 1024 * 1024
     });
 
-    this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; };
+    this.uploader.onAfterAddingFile = file => {
+      file.withCredentials = false;
+    };
     // This is put in place because of a cors error in the dev tools. Because we're not using credentials
     // in the StartUp class in the app.UseCors method a bug with ng2 file upload meant there was an error
 
@@ -63,18 +67,35 @@ export class PhotoEditorComponent implements OnInit {
   }
 
   setMainPhoto(photo: Photo) {
-    this.userService.setMainPhoto(this.authService.decodedToken.nameid, photo.id).subscribe(() => {
-      this.currentMain = this.photos.filter(p => p.isMain === true)[0];
-      this.currentMain.isMain = false;
-      photo.isMain = true;
-      // this.getAvailableShooterPhotoChange.emit(photo.url); This was to emit an event that would change the main photo
-      // but not needed anymore as the image is subscribing from the authService
-      // Can remove the below if don't want an icon in the nav bar
-      this.authService.changeAvailableShooterPhoto(photo.url);
-      this.authService.currentUser.photoUrl = photo.url;
-      localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
-    }, error => {
-      this.alertify.error(error);
+    this.userService.setMainPhoto(this.authService.decodedToken.nameid, photo.id).subscribe(
+      () => {
+        this.currentMain = this.photos.filter(p => p.isMain === true)[0];
+        this.currentMain.isMain = false;
+        photo.isMain = true;
+        // this.getAvailableShooterPhotoChange.emit(photo.url); This was to emit an event that would change the main photo
+        // but not needed anymore as the image is subscribing from the authService
+        // Can remove the below if don't want an icon in the nav bar
+        this.authService.changeAvailableShooterPhoto(photo.url);
+        this.authService.currentUser.photoUrl = photo.url;
+        localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
+
+  deletePhoto(id: number) {
+    this.alertify.confirm('Are you sure you want to delete this photo?', () => {
+      this.userService.deletePhoto(this.authService.decodedToken.nameid, id).subscribe(
+        () => {
+          this.photos.splice(this.photos.findIndex(p => p.id === id), 1);
+          this.alertify.success('Photo has been deleted');
+        },
+        error => {
+          this.alertify.error(error);
+        }
+      );
     });
   }
 }
