@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-register',
@@ -18,16 +19,40 @@ export class RegisterComponent implements OnInit {
 
   model: any = {};
   registerForm: FormGroup;
+  bsConfig: Partial<BsDatepickerConfig>;
+  // The BsDatepickerConfig class has a lot of required fields but we only wanted to implemented the containerClass
+  // in order to customise the theme. Setting it to a partial class makes all required fields optional
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) {}
+  constructor(private authService: AuthService, private alertify: AlertifyService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.registerForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('',
-        [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
-      confirmPassword: new FormControl('', Validators.required)
-    }, this.passwordMatchValidator);
+    this.bsConfig = {
+      containerClass: 'theme-blue'
+    };
+    this.createRegisterForm();
+
+    // Below is one way of creating custom validation for a form but it can be better to create a form group
+    // using the FormBuilder class i.e createRegisterForm
+    // this.registerForm = new FormGroup({
+    //   username: new FormControl('', Validators.required),
+    //   password: new FormControl('',
+    //     [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
+    //   confirmPassword: new FormControl('', Validators.required)
+    // }, this.passwordMatchValidator);
+  }
+
+  createRegisterForm() {
+    this.registerForm = this.fb.group({
+      shooterType: ['primary-shooter'],
+      username: ['', Validators.required],
+      knownAs: ['', Validators.required],
+      dateOfBirth: [null, Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      confirmPassword: ['', Validators.required]
+    }, {validator: this.passwordMatchValidator});
+    // fb.group is the equivalent of writing new FormGroup in the ngOnInit method
   }
 
   // Below adds a customer method to FormGroup which can be used to validate that the passwords match
