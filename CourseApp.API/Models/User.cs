@@ -17,6 +17,7 @@ namespace CourseApp.API.Models
         public string Introduction { get; set; }
         public string Equipment { get; set; }
         public string Experience { get; set; }
+        public string ShooterType { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
