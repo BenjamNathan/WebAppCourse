@@ -18,5 +18,8 @@ namespace CourseApp.API.Helpers
             set { pageSize = (value > MaxPageSize) ? MaxPageSize : value; }
         }
 
+        public int UserId { get; set; }
+        public string ShooterType { get; set; }
+
     }
 }
