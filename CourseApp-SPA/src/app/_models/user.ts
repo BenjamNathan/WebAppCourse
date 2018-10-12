@@ -10,6 +10,7 @@ export interface User {
     photoUrl: string;
     city: string;
     country: string;
+    shooterType: string;
     introduction?: string;
     equipment?: string;
     experience?: string;
