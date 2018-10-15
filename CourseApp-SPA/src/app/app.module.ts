@@ -30,6 +30,7 @@ import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edi
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './available-shooters/photo-editor/photo-editor.component';
 import { FavouritesResolver } from './_resolvers/favourites.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -80,7 +81,8 @@ export function tokenGetter() {
       AvailableShooterListResolver,
       AvailableShooterEditResolver,
       PreventUnsavedChanges,
-      FavouritesResolver
+      FavouritesResolver,
+      MessagesResolver
    ],
    bootstrap: [
       AppComponent
