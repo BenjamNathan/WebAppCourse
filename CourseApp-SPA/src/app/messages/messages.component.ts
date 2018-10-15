@@ -26,7 +26,7 @@ export class MessagesComponent implements OnInit {
     });
   }
 
-  loadMessage() {
+  loadMessages() {
     this.userService.getMessages(this.authSerive.decodedToken.nameid, this.pagination.currentPage,
       this.pagination.itemsPerPage, this.messageContainer)
       .subscribe((res: PaginatedResult<Message[]>) => {
@@ -40,7 +40,7 @@ export class MessagesComponent implements OnInit {
 
   pageChanged(event: any): void {
     this.pagination.currentPage = event.page;
-    this.loadMessage();
+    this.loadMessages();
   }
 
 }
