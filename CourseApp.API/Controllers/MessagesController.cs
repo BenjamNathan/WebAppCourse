@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CourseApp.API.Data;
 using CourseApp.API.Dtos;
+using CourseApp.API.Helpers;
 using CourseApp.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,23 @@ namespace CourseApp.API.Controllers
             return Ok(messageFromRepo);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetMessagesForUser(int userId, [FromQuery]MessageParams messageParams)
+        {
+            if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            messageParams.UserId = userId; 
+
+            var messagesFromRepo = await _repo.GetMessageForUser(messageParams);
+
+            var messages = _mapper.Map<IEnumerable<MessageToReturnDto>>(messagesFromRepo);
+
+            Response.AddPagination(messagesFromRepo.CurrentPage, messagesFromRepo.PageSize, messagesFromRepo.TotalCount, messagesFromRepo.TotalPages);
+
+            return Ok(messages);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateMessage(int userId, MessageForCreationDto messageForCreationDto)
         {
@@ -51,7 +69,7 @@ namespace CourseApp.API.Controllers
             var recipient = await _repo.GetUser(messageForCreationDto.RecipientId);
 
             if (recipient == null)
-                return BadRequest("Could find user");
+                return BadRequest("Could not find user");
 
             var message = _mapper.Map<Message>(messageForCreationDto);
 
