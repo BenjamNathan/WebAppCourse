@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
@@ -29,6 +29,7 @@ import { AvailableShooterEditComponent } from './available-shooters/available-sh
 import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './available-shooters/photo-editor/photo-editor.component';
+import { FavouritesResolver } from './_resolvers/favourites.resolver';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -57,6 +58,7 @@ export function tokenGetter() {
       BsDatepickerModule.forRoot(),
       PaginationModule.forRoot(),
       TabsModule.forRoot(),
+      ButtonsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
       FileUploadModule,
@@ -77,7 +79,8 @@ export function tokenGetter() {
       AvailableShooterDetailResolver,
       AvailableShooterListResolver,
       AvailableShooterEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      FavouritesResolver
    ],
    bootstrap: [
       AppComponent

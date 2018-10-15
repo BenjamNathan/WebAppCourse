@@ -10,6 +10,7 @@ import { AvailableShooterListResolver } from './_resolvers/available-shooter-lis
 import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
 import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { FavouritesResolver } from './_resolvers/favourites.resolver';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -24,7 +25,7 @@ export const appRoutes: Routes = [
             { path: 'available-shooter/edit', component: AvailableShooterEditComponent,
                 resolve: {user: AvailableShooterEditResolver}, canDeactivate: [PreventUnsavedChanges] },
             { path: 'messages', component: MessagesComponent},
-            { path: 'favourites', component: FavouritesComponent}
+            { path: 'favourites', component: FavouritesComponent, resolve: { users: FavouritesResolver}}
         ]
     },
     { path: 'available-shooters', component: AvailableShootersListComponent,
