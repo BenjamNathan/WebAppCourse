@@ -3,7 +3,7 @@
     <img class="card-img-top" src="{{user.photoUrl || '../../../assets/user.png'}}" alt="{{user.knownAs}}">
     <ul class="list-inline available-shooter-icons animate text-center">
       <li class="list-inline-item"><button class="btn btn-secondary" [routerLink]="['/available-shooters/', user.id]"><i class="fa fa-user"></i></button></li>
-      <li class="list-inline-item"><button class="btn btn-secondary"><i class="fa fa-camera-retro"></i></button></li>
+      <li class="list-inline-item"><button class="btn btn-secondary" (click)="sendLike(user.id)"><i class="fa fa-camera-retro"></i></button></li>
       <li class="list-inline-item"><button class="btn btn-secondary"><i class="fa fa-envelope"></i></button></li>
     </ul>
   </div>
