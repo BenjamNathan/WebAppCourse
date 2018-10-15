@@ -32,6 +32,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './available-shooters/photo-editor/photo-editor.component';
 import { FavouritesResolver } from './_resolvers/favourites.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
+import { AvailableShooterMessagesComponent } from './available-shooters/available-shooter-messages/available-shooter-messages.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -50,7 +51,8 @@ export function tokenGetter() {
       FavouritesComponent,
       AvailableShooterEditComponent,
       PhotoEditorComponent,
-      TimeAgoPipe
+      TimeAgoPipe,
+      AvailableShooterMessagesComponent
    ],
    imports: [
       BrowserModule,
