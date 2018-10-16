@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -29,6 +30,9 @@ import { AvailableShooterEditComponent } from './available-shooters/available-sh
 import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './available-shooters/photo-editor/photo-editor.component';
+import { FavouritesResolver } from './_resolvers/favourites.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { AvailableShooterMessagesComponent } from './available-shooters/available-shooter-messages/available-shooter-messages.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -46,14 +50,20 @@ export function tokenGetter() {
       AvailableShooterDetailComponent,
       FavouritesComponent,
       AvailableShooterEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      TimeAgoPipe,
+      AvailableShooterMessagesComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BsDropdownModule.forRoot(),
+      BsDatepickerModule.forRoot(),
+      PaginationModule.forRoot(),
       TabsModule.forRoot(),
+      ButtonsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
       FileUploadModule,
@@ -74,7 +84,9 @@ export function tokenGetter() {
       AvailableShooterDetailResolver,
       AvailableShooterListResolver,
       AvailableShooterEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      FavouritesResolver,
+      MessagesResolver
    ],
    bootstrap: [
       AppComponent

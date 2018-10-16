@@ -10,6 +10,8 @@ import { AvailableShooterListResolver } from './_resolvers/available-shooter-lis
 import { AvailableShooterEditComponent } from './available-shooters/available-shooter-edit/available-shooter-edit.component';
 import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { FavouritesResolver } from './_resolvers/favourites.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -23,8 +25,8 @@ export const appRoutes: Routes = [
             // :id means that a variable is going to be passed in
             { path: 'available-shooter/edit', component: AvailableShooterEditComponent,
                 resolve: {user: AvailableShooterEditResolver}, canDeactivate: [PreventUnsavedChanges] },
-            { path: 'messages', component: MessagesComponent},
-            { path: 'favourites', component: FavouritesComponent}
+            { path: 'messages', component: MessagesComponent, resolve: { messages: MessagesResolver}},
+            { path: 'favourites', component: FavouritesComponent, resolve: { users: FavouritesResolver}}
         ]
     },
     { path: 'available-shooters', component: AvailableShootersListComponent,
