@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CourseApp.API.Controllers
 {
-    [Authorize]
+    // [Authorize] Don't need this any more because of the options added into services.AddMvc in the Startup class (i.e. global authentication)
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase

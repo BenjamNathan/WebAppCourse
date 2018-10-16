@@ -7,12 +7,14 @@ using AutoMapper;
 using CourseApp.API.Data;
 using CourseApp.API.Dtos;
 using CourseApp.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CourseApp.API.Controllers
 {
+    [AllowAnonymous] //This is required now that we're authorising globally
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
