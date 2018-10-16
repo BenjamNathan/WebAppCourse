@@ -111,7 +111,7 @@ namespace CourseApp.API.Controllers
                 messageFromRepo.SenderDeleted = true;
 
             if (messageFromRepo.RecipientId == userId)
-                messageFromRepo.SenderDeleted = true;
+                messageFromRepo.RecipientDeleted = true;
 
             if (messageFromRepo.SenderDeleted && messageFromRepo.RecipientDeleted)
                 _repo.Delete(messageFromRepo);
