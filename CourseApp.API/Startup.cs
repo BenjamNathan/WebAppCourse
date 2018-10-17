@@ -72,6 +72,13 @@ namespace CourseApp.API
                 };
             });
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("ModeratePhotoRole", policy => policy.RequireRole("Admin", "Moderator"));
+                options.AddPolicy("VipOnly", policy => policy.RequireRole("VIP"));
+            });
+
             services.AddMvc(options =>
             {
                 // Added this so every request requires it to be authenticated and means it doesn't have to be checked in every controller with the authoriser attribute
