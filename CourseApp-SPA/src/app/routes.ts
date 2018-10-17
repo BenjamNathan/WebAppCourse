@@ -28,7 +28,7 @@ export const appRoutes: Routes = [
                 resolve: {user: AvailableShooterEditResolver}, canDeactivate: [PreventUnsavedChanges] },
             { path: 'messages', component: MessagesComponent, resolve: { messages: MessagesResolver}},
             { path: 'favourites', component: FavouritesComponent, resolve: { users: FavouritesResolver}},
-            { path: 'admin', component: AdminPanelComponent, data: {roles: ['Admin', 'Moderator']}}
+            { path: 'admin', component: AdminPanelComponent, data: {roles: ['Admin', 'Moderator']}},
         ]
     },
     { path: 'available-shooters', component: AvailableShootersListComponent,

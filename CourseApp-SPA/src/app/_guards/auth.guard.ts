@@ -10,8 +10,10 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router, private alertify: AlertifyService) {}
 
   canActivate(next: ActivatedRouteSnapshot): boolean {
-    const roles = next.firstChild.data['roles'] as Array<string>;
+    const roles = next.data['roles'] as Array<string>;
     // User 'roles' because that's how it's named inside the route
+    // If available-shooters was a child in routes.ts this would need to be written as
+    // const roles = next.firstChild.data['roles'] as Array<string>;
     if (roles) {
       const match = this.authService.roleMatch(roles);
       if (match) {
