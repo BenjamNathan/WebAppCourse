@@ -89,7 +89,7 @@ namespace CourseApp.API
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper();
             services.AddTransient<Seed>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
+            // services.AddScoped<IAuthRepository, AuthRepository>(); Removed because taken out of the login and register methods
             services.AddScoped<ICourseAppRepository, CourseAppRepository>();
         }
 

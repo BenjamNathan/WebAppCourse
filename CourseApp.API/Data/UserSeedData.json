@@ -10,6 +10,7 @@
     "Introduction": "Et sunt consequat laborum deserunt laboris tempor ad magna. Amet qui reprehenderit quis enim sit in. Magna eiusmod ea laborum magna dolor dolore magna incididunt labore excepteur id non proident irure.\r\n",
     "Equipment": "Pariatur in qui labore nisi dolor fugiat sit voluptate exercitation reprehenderit.",
     "Experience": "Aute quis velit dolore laborum. Do sint laboris officia nisi cupidatat commodo. Non velit anim voluptate sit duis irure irure qui.\r\n",
+    "ShooterType": "primary-shooter",
     "City": "Umapine",
     "Country": "Germany",
     "Photos": [
@@ -31,6 +32,7 @@
     "Introduction": "Est ex sunt Lorem nostrud minim nisi. Mollit ea sunt excepteur et minim sit aliquip exercitation Lorem ut nostrud tempor. Nisi adipisicing est Lorem id reprehenderit tempor. Do quis eiusmod commodo culpa reprehenderit nisi minim aliquip non. Velit reprehenderit exercitation mollit sunt velit do labore ullamco aliqua veniam id velit.\r\n",
     "Equipment": "Ullamco commodo qui aliquip sit ipsum velit aliqua dolor velit ad.",
     "Experience": "Cillum ullamco fugiat do reprehenderit sit proident. Dolore mollit proident occaecat ullamco mollit proident ad magna reprehenderit dolor ullamco. Id voluptate anim veniam aliqua Lorem exercitation ad veniam irure eu fugiat aliquip voluptate.\r\n",
+    "ShooterType": "primary-shooter",
     "City": "Bennett",
     "Country": "Panama",
     "Photos": [
@@ -52,6 +54,7 @@
     "Introduction": "Lorem nisi consectetur aute laboris aliquip aliquip quis. Minim enim deserunt reprehenderit aliquip ullamco excepteur. Quis culpa culpa id consequat. Ad adipisicing ipsum esse minim veniam sit qui. Pariatur fugiat incididunt ex qui. Elit duis nisi quis aute nisi elit ea nulla laborum. Ullamco exercitation sit minim ut.\r\n",
     "Equipment": "Quis aliqua incididunt incididunt consectetur duis aute pariatur Lorem sint ut in.",
     "Experience": "Proident mollit sint est labore. Dolor laborum et anim esse non esse ut excepteur laborum ad tempor in quis minim. Ut eu fugiat consectetur do fugiat. Eu commodo velit sint nisi reprehenderit cupidatat eu nostrud labore nostrud sunt commodo incididunt.\r\n",
+    "ShooterType": "primary-shooter",
     "City": "Clarence",
     "Country": "Swaziland",
     "Photos": [
@@ -73,6 +76,7 @@
     "Introduction": "Veniam proident laboris excepteur nostrud aute. Eiusmod aliqua proident proident est. Sunt est dolor cupidatat excepteur ipsum dolor qui Lorem fugiat sint id. Dolor sunt non irure exercitation culpa mollit ut eiusmod nulla. Nisi magna aliqua consectetur deserunt est voluptate voluptate irure. Tempor deserunt ipsum ad nostrud. Officia dolor elit enim excepteur labore in.\r\n",
     "Equipment": "Dolore sunt enim voluptate est ipsum adipisicing veniam reprehenderit ullamco Lorem minim.",
     "Experience": "Ex qui non cillum Lorem sint laboris excepteur veniam nostrud Lorem laboris ad labore. Qui qui pariatur reprehenderit Lorem cillum aute sint irure irure. Occaecat magna non consequat dolor aliquip enim laboris cillum minim. Pariatur ullamco aute cupidatat aute voluptate id sit consequat Lorem amet sint eu. Nisi fugiat esse qui ex. Dolore quis consequat excepteur laboris voluptate minim qui nostrud. Id do laborum consectetur pariatur.\r\n",
+    "ShooterType": "primary-shooter",
     "City": "Montura",
     "Country": "Niger",
     "Photos": [
@@ -94,6 +98,7 @@
     "Introduction": "Magna deserunt cupidatat voluptate incididunt est ullamco culpa dolore irure aute mollit aliqua commodo laborum. Dolore enim dolore esse sint magna officia id ex. Sint ad ut sit irure commodo fugiat cillum eiusmod. Ut mollit magna fugiat laboris qui. Pariatur veniam voluptate sint elit minim qui deserunt do deserunt ut amet. Velit aute esse velit qui. Et nisi nostrud est do incididunt officia dolor tempor nostrud.\r\n",
     "Equipment": "Duis ut non commodo nulla irure nisi aliqua officia ullamco amet sunt pariatur reprehenderit.",
     "Experience": "Sunt nostrud et mollit nulla deserunt nulla aliquip incididunt aliqua sint officia laboris. In consequat pariatur elit elit adipisicing pariatur consequat. Id id eiusmod quis enim labore. Dolore sunt laboris consequat voluptate veniam aute.\r\n",
+    "ShooterType": "secondary-shooter",
     "City": "Waumandee",
     "Country": "Egypt",
     "Photos": [
@@ -115,6 +120,7 @@
     "Introduction": "Ex cupidatat et dolore sint sit magna incididunt excepteur sit occaecat exercitation ut. Consectetur deserunt qui deserunt do sunt. Culpa ipsum eu Lorem ipsum adipisicing ad laboris magna ullamco mollit occaecat. Ut sint est excepteur quis quis commodo adipisicing velit mollit eu in sunt ipsum. Et id proident fugiat laborum aute.\r\n",
     "Equipment": "Dolore aliquip sunt aliquip sit sit.",
     "Experience": "Commodo exercitation nostrud laborum esse incididunt duis eiusmod officia culpa elit dolor aute. Culpa Lorem qui culpa aute voluptate quis nisi mollit ipsum pariatur ex ut sunt. Veniam cillum deserunt culpa do id cupidatat. Dolore velit in ad culpa occaecat in commodo ipsum eu eiusmod sunt. Lorem exercitation est ullamco laborum voluptate culpa laborum Lorem ad Lorem minim Lorem. Id cillum non sint voluptate exercitation incididunt occaecat exercitation non velit non. Elit duis eu veniam commodo occaecat pariatur.\r\n",
+    "ShooterType": "secondary-shooter",
     "City": "Troy",
     "Country": "Lebanon",
     "Photos": [
@@ -136,6 +142,7 @@
     "Introduction": "Consequat labore eu in ad dolor laboris ex. Anim esse adipisicing pariatur nisi elit fugiat et occaecat. Minim do veniam consectetur voluptate eiusmod veniam ullamco est reprehenderit laborum veniam aliqua cupidatat.\r\n",
     "Equipment": "Eu ullamco cillum laborum in adipisicing ipsum proident consequat anim anim incididunt Lorem.",
     "Experience": "Ipsum culpa veniam enim enim consectetur minim ad. Amet in eiusmod voluptate id sint. Magna aliquip aliqua adipisicing minim duis ipsum enim veniam Lorem exercitation cillum Lorem eiusmod. Eu sunt laboris consectetur ex nostrud aliqua et excepteur elit.\r\n",
+    "ShooterType": "secondary-shooter",
     "City": "Lorraine",
     "Country": "Jamaica",
     "Photos": [
@@ -157,6 +164,7 @@
     "Introduction": "Do qui id magna nisi aliqua dolor consectetur dolore irure. Minim est qui magna enim nisi in id fugiat nulla proident. Proident commodo do magna eiusmod irure pariatur. Sit dolore incididunt consectetur commodo aliquip et eiusmod eu excepteur enim officia sint.\r\n",
     "Equipment": "Enim aute do qui fugiat dolore cillum ullamco laboris eu aute anim tempor ut minim.",
     "Experience": "Eu fugiat culpa nostrud reprehenderit velit enim adipisicing irure qui incididunt officia ea quis. Esse labore ullamco tempor eiusmod elit. Ad est ad laborum non ad aliquip ipsum adipisicing nostrud nulla do nisi. Proident eiusmod occaecat nulla cupidatat officia magna qui ex consequat pariatur et ex.\r\n",
+    "ShooterType": "secondary-shooter",
     "City": "Baker",
     "Country": "Rwanda",
     "Photos": [
@@ -178,6 +186,7 @@
     "Introduction": "Ullamco labore esse tempor aliqua adipisicing consequat in ipsum est esse ex eiusmod reprehenderit veniam. Consectetur sint ea incididunt nostrud reprehenderit elit in magna deserunt excepteur amet consequat officia id. Deserunt fugiat occaecat voluptate ad ea ipsum enim. Ea id labore cupidatat ex minim elit adipisicing magna quis cupidatat qui cupidatat. Ut pariatur irure reprehenderit dolor. Nostrud ullamco duis nulla incididunt nisi culpa excepteur quis pariatur nostrud ad id elit.\r\n",
     "Equipment": "Id irure reprehenderit excepteur laborum laboris nulla tempor sit officia sunt amet fugiat qui proident.",
     "Experience": "Minim eu sint ullamco occaecat dolor eiusmod. Laboris ea consectetur consectetur consequat consectetur quis nisi do exercitation veniam ex sunt irure. Dolore elit duis aliqua labore culpa proident minim laborum exercitation. Enim officia officia et irure id.\r\n",
+    "ShooterType": "secondary-shooter",
     "City": "Fresno",
     "Country": "Panama",
     "Photos": [
@@ -199,6 +208,7 @@
     "Introduction": "Ullamco qui irure consequat laboris ad magna est exercitation ea cupidatat duis. Excepteur sint ex amet occaecat excepteur eu nulla aute non anim. Commodo proident ex magna laborum sint eu veniam veniam voluptate voluptate laborum. Cupidatat dolor exercitation quis consectetur eu deserunt culpa ad cupidatat cillum. Occaecat culpa elit do aliqua sunt veniam aliqua anim irure anim commodo ex. Dolor laboris dolore nisi incididunt reprehenderit irure voluptate ad excepteur enim.\r\n",
     "Equipment": "Consequat occaecat pariatur qui et anim ex officia consectetur consectetur non excepteur anim.",
     "Experience": "Ipsum do aute ipsum commodo amet minim. Fugiat sunt sint culpa consectetur tempor. Ea cillum dolor reprehenderit fugiat eu aliqua velit nulla deserunt laborum dolor sint labore excepteur. Sint occaecat id nulla sunt qui ea exercitation qui. Magna est officia ex occaecat veniam excepteur duis esse duis excepteur eiusmod.\r\n",
+    "ShooterType": "secondary-shooter",
     "City": "Norfolk",
     "Country": "Oman",
     "Photos": [
