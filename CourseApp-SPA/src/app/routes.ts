@@ -12,6 +12,7 @@ import { AvailableShooterEditResolver } from './_resolvers/available-shooter-edi
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { FavouritesResolver } from './_resolvers/favourites.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -26,7 +27,8 @@ export const appRoutes: Routes = [
             { path: 'available-shooter/edit', component: AvailableShooterEditComponent,
                 resolve: {user: AvailableShooterEditResolver}, canDeactivate: [PreventUnsavedChanges] },
             { path: 'messages', component: MessagesComponent, resolve: { messages: MessagesResolver}},
-            { path: 'favourites', component: FavouritesComponent, resolve: { users: FavouritesResolver}}
+            { path: 'favourites', component: FavouritesComponent, resolve: { users: FavouritesResolver}},
+            { path: 'admin', component: AdminPanelComponent}
         ]
     },
     { path: 'available-shooters', component: AvailableShootersListComponent,

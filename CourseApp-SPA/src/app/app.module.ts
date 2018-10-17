@@ -33,6 +33,7 @@ import { PhotoEditorComponent } from './available-shooters/photo-editor/photo-ed
 import { FavouritesResolver } from './_resolvers/favourites.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { AvailableShooterMessagesComponent } from './available-shooters/available-shooter-messages/available-shooter-messages.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -52,7 +53,8 @@ export function tokenGetter() {
       AvailableShooterEditComponent,
       PhotoEditorComponent,
       TimeAgoPipe,
-      AvailableShooterMessagesComponent
+      AvailableShooterMessagesComponent,
+      AdminPanelComponent
    ],
    imports: [
       BrowserModule,

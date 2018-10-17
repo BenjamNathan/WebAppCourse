@@ -27,10 +27,11 @@ namespace CourseApp.API.Controllers
 
         // Authorize policy matches name in start up class
         [Authorize(Policy = "RequireAdminRole")]
-        [HttpGet("usersWithRoles")]        
+        [HttpGet("usersWithRoles")]
         public async Task<IActionResult> GetUsersWithRoles()
         {
-            var userList = await (from user in _context.Users orderby user.UserName
+            var userList = await (from user in _context.Users
+                                  orderby user.UserName
                                   select new
                                   {
                                       user.Id,
@@ -55,7 +56,7 @@ namespace CourseApp.API.Controllers
 
             var selectedRoles = roleEditDto.RoleNames;
 
-            selectedRoles = selectedRoles ?? new string[] {};
+            selectedRoles = selectedRoles ?? new string[] { };
             // ?? is the null coalescing operator which expands to:
             // selectedRoles = selectedRoles != null ? selectedRoles : new string[] {}
             // Essentially means, if not null use what's on the left, if it is use what's on the right
