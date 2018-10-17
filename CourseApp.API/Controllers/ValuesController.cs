@@ -12,7 +12,7 @@ namespace CourseApp.API.Controllers
     // http://localhost:5000/api/values  This URL would hit the first method (GET api/values) Assuming this is a GET URL
     // If the URL ended /values/5 this would hit the second method and that's what the browser would return
     // App knows to point to localhost:5000 because it's set in the Properties > launchSettings.json file
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -25,7 +25,7 @@ namespace CourseApp.API.Controllers
         }
 
         // GET api/values
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         // IActionResult allows us to return http responses to the client       
         // Made asynchronous because it keeps the connection open allowing multiple request to be performed at the same time
@@ -40,7 +40,7 @@ namespace CourseApp.API.Controllers
         }
 
         // GET api/values/5
-        [AllowAnonymous]
+        [Authorize(Roles = "Member")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
