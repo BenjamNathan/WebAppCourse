@@ -34,6 +34,7 @@ import { FavouritesResolver } from './_resolvers/favourites.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { AvailableShooterMessagesComponent } from './available-shooters/available-shooter-messages/available-shooter-messages.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/hasRole.directive';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -54,7 +55,8 @@ export function tokenGetter() {
       PhotoEditorComponent,
       TimeAgoPipe,
       AvailableShooterMessagesComponent,
-      AdminPanelComponent
+      AdminPanelComponent,
+      HasRoleDirective
    ],
    imports: [
       BrowserModule,
