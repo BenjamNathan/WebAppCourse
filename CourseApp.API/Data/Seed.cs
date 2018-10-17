@@ -18,10 +18,12 @@ namespace CourseApp.API.Data
         */
 
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<Role> _roleManager;
 
-        public Seed(UserManager<User> userManager)
+        public Seed(UserManager<User> userManager, RoleManager<Role> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public void SeedUsers()
@@ -31,9 +33,26 @@ namespace CourseApp.API.Data
                 var userData = System.IO.File.ReadAllText("Data/UserSeedData.json");
                 var users = JsonConvert.DeserializeObject<List<User>>(userData);
 
+                //Added to manage roles with Seed data
+
+                var roles = new List<Role>
+                {
+                    //This creates possible roles to add users to
+                    new Role{Name = "Member"},
+                    new Role{Name = "Admin"},
+                    new Role{Name = "Moderator"},
+                    new Role{Name = "VIP"}
+                };
+
+                foreach (var role in roles)
+                {
+                    _roleManager.CreateAsync(role).Wait();
+                }
+
                 foreach (var user in users)
                 {
                     _userManager.CreateAsync(user, "password").Wait();
+                    _userManager.AddToRoleAsync(user, "Member").Wait(); //All users are currently being created as members
 
                     // No longer need to generate a password hash because of Identity
                     // byte[] passwordHash, passwordSalt;
@@ -45,6 +64,19 @@ namespace CourseApp.API.Data
                     // user.UserName = user.UserName.ToLower();
 
                     // _context.Users.Add(user);
+                }
+
+                var adminUser = new User
+                {
+                    UserName = "Admin"
+                };
+
+                IdentityResult result = _userManager.CreateAsync(adminUser, "password").Result;
+
+                if (result.Succeeded)
+                {
+                    var admin = _userManager.FindByNameAsync("Admin").Result;
+                    _userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" }).Wait();
                 }
 
                 // _context.SaveChanges();
