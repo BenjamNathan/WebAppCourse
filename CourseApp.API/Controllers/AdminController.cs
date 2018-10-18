@@ -1,10 +1,14 @@
-﻿using CourseApp.API.Data;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using CourseApp.API.Data;
 using CourseApp.API.Dtos;
+using CourseApp.API.Helpers;
 using CourseApp.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +23,24 @@ namespace CourseApp.API.Controllers
         private readonly ICourseAppRepository _repo;
         private readonly DataContext _context;
         private readonly UserManager<User> _userManager;
+        private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
+        private Cloudinary _cloudinary;
 
-        public AdminController(ICourseAppRepository repo, DataContext context, UserManager<User> userManager)
+        public AdminController(ICourseAppRepository repo, DataContext context,
+            UserManager<User> userManager, IOptions<CloudinarySettings> cloudinaryConfig)
         {
             _repo = repo;
             _context = context;
             _userManager = userManager;
+            _cloudinaryConfig = cloudinaryConfig;
+
+            Account acc = new Account(
+                _cloudinaryConfig.Value.CloudName,
+                _cloudinaryConfig.Value.ApiKey,
+                _cloudinaryConfig.Value.ApiSecret
+            );
+
+            _cloudinary = new Cloudinary(acc);
         }
 
         // Authorize policy matches name in start up class
@@ -107,6 +123,31 @@ namespace CourseApp.API.Controllers
                 return NoContent();
 
             return BadRequest("Could not approve photo");
+        }
+
+        [Authorize(Policy = "ModeratePhotoRole")]
+        [HttpDelete("photosForModeration/{id}")]
+        public async Task<IActionResult> DeletePhoto(int id)
+        {
+            var photoFromRepo = await _repo.GetPhoto(id);
+
+            if (photoFromRepo.PublicId != null)
+            {
+                var deleteParams = new DeletionParams(photoFromRepo.PublicId);
+
+                var result = _cloudinary.Destroy(deleteParams);
+
+                if (result.Result == "ok")
+                    _repo.Delete(photoFromRepo);
+            }
+
+            if (photoFromRepo.PublicId == null)
+                _repo.Delete(photoFromRepo);
+
+            if (await _repo.SaveAll())
+                return Ok();
+
+            return BadRequest("Failed to delete the photo");
         }
     }
 }
