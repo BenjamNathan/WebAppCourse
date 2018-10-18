@@ -128,7 +128,7 @@ namespace CourseApp.API
             }
 
             // app.UseHttpsRedirection();
-            // seeder.SeedUsers(); // Commented out because only need to see users the once. Will uncomment if need to do it again
+            seeder.SeedUsers(); // Commented out because only need to see users the once. Will uncomment if need to do it again
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseDefaultFiles();

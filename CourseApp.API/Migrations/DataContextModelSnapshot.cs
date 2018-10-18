@@ -68,6 +68,8 @@ namespace CourseApp.API.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<bool>("IsApproved");
+
                     b.Property<bool>("IsMain");
 
                     b.Property<string>("PublicId");
@@ -314,11 +316,6 @@ namespace CourseApp.API.Migrations
 
                     b.HasOne("CourseApp.API.Models.User", "User")
                         .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CourseApp.API.Models.User")
-                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

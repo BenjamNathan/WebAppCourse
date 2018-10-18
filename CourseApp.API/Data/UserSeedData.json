@@ -17,6 +17,7 @@
       {
         "url": "https://picsum.photos/150/150?image=671",
         "isMain": true,
+        "isApproved": true,
         "description": "Dolor laboris dolor enim do in mollit aute sint reprehenderit in laboris laboris commodo nisi."
       }
     ]
@@ -39,6 +40,7 @@
       {
         "url": "https://picsum.photos/150/150?image=938",
         "isMain": true,
+        "isApproved": true,
         "description": "Nisi Lorem in do cupidatat qui sunt commodo."
       }
     ]
@@ -61,6 +63,7 @@
       {
         "url": "https://picsum.photos/150/150?image=1049",
         "isMain": true,
+        "isApproved": true,
         "description": "Cupidatat aute duis quis laboris exercitation tempor labore laborum aliqua veniam."
       }
     ]
@@ -83,6 +86,7 @@
       {
         "url": "https://picsum.photos/150/150?image=744",
         "isMain": true,
+        "isApproved": true,
         "description": "Adipisicing do occaecat deserunt do."
       }
     ]
@@ -105,6 +109,7 @@
       {
         "url": "https://picsum.photos/150/150?image=452",
         "isMain": true,
+        "isApproved": true,
         "description": "Ut velit sunt aute laboris incididunt esse est tempor ex."
       }
     ]
@@ -127,6 +132,7 @@
       {
         "url": "https://picsum.photos/150/150?image=813",
         "isMain": true,
+        "isApproved": true,
         "description": "Esse elit ad id nostrud commodo."
       }
     ]
@@ -149,6 +155,7 @@
       {
         "url": "https://picsum.photos/150/150?image=274",
         "isMain": true,
+        "isApproved": true,
         "description": "Aute sunt nostrud esse enim."
       }
     ]
@@ -171,6 +178,7 @@
       {
         "url": "https://picsum.photos/150/150?image=907",
         "isMain": true,
+        "isApproved": true,
         "description": "Aute veniam exercitation excepteur qui amet eu velit."
       }
     ]
@@ -193,6 +201,7 @@
       {
         "url": "https://picsum.photos/150/150?image=183",
         "isMain": true,
+        "isApproved": true,
         "description": "Amet excepteur ut aute esse cupidatat eiusmod eiusmod quis."
       }
     ]
@@ -215,6 +224,7 @@
       {
         "url": "https://picsum.photos/150/150?image=458",
         "isMain": true,
+        "isApproved": true,
         "description": "Culpa duis nulla sint incididunt duis et aliquip minim."
       }
     ]

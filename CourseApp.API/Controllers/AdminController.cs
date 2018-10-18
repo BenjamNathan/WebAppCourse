@@ -76,9 +76,27 @@ namespace CourseApp.API.Controllers
 
         [Authorize(Policy = "ModeratePhotoRole")]
         [HttpGet("photosForModeration")]
-        public IActionResult GetPhotosForModeration()
+        public async Task<IActionResult> GetPhotosForModeration()
         {
-            return Ok("Admins or moderators can see this");
+            var photoList = await (from photo in _context.Photos
+                                 orderby photo.DateAdded
+                                 select new
+                                 {
+                                     photo.Id,
+                                     photo.UserId,
+                                     photo.IsApproved
+                                 }).ToListAsync();
+
+            var unapprovedPhotosList = photoList.Where(p => p.IsApproved == false);
+
+            return Ok(unapprovedPhotosList);
         }
+
+        //[Authorize(Policy = "ModeratePhotoRole")]
+        //[HttpPut()]
+        //public async Task<IActionResult> ApprovePhoto()
+        //{
+        //
+        //}
     }
 }
