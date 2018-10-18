@@ -84,7 +84,8 @@ namespace CourseApp.API.Controllers
                                  {
                                      photo.Id,
                                      photo.UserId,
-                                     photo.IsApproved
+                                     photo.IsApproved,
+                                     photo.Url
                                  }).ToListAsync();
 
             var unapprovedPhotosList = photoList.Where(p => p.IsApproved == false);
