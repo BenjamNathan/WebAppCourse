@@ -39,6 +39,7 @@ import { UserManagementComponent } from './admin/user-management/user-management
 import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
+import { AdminPhotoManagementResolver } from './_resolvers/admin-photo-management.resolver';
 
 export function tokenGetter() {
     return localStorage.getItem('token');
@@ -99,7 +100,8 @@ export function tokenGetter() {
       PreventUnsavedChanges,
       FavouritesResolver,
       MessagesResolver,
-      AdminService
+      AdminService,
+      AdminPhotoManagementResolver
    ],
    entryComponents: [
     RolesModalComponent
