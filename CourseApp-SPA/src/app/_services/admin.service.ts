@@ -22,4 +22,8 @@ export class AdminService {
   getPhotosForModeration() {
     return this.http.get(this.baseUrl + 'admin/photosForModeration');
   }
+
+  approvePhoto(id: number) {
+    return this.http.put(this.baseUrl + 'admin/approvePhoto/' + id, {});
+  }
 }

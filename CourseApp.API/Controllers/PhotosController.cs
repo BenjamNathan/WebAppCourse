@@ -115,7 +115,6 @@ namespace CourseApp.API.Controllers
 
             photoFromRepo.IsMain = true;
 
-
             if (await _repo.SaveAll())
                 return NoContent();
 

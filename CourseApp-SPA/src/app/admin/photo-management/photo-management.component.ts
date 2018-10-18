@@ -13,8 +13,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class PhotoManagementComponent implements OnInit {
   photos: Photo[];
 
-  constructor(private adminService: AdminService, private authService: AuthService,
-    private userService: UserService, private alertify: AlertifyService) { }
+  constructor(private adminService: AdminService, private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.getPhotosForModeration();
@@ -25,6 +24,14 @@ export class PhotoManagementComponent implements OnInit {
       this.photos = photos;
     }, error => {
       console.log(error);
+    });
+  }
+
+  approvePhoto(id: number) {
+    this.adminService.approvePhoto(id).subscribe(() => {
+      this.photos.splice(this.photos.findIndex(p => p.id === id, 1));
+    }, error => {
+      this.alertify.error(error);
     });
   }
 }

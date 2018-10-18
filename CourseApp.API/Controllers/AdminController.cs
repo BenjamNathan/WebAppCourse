@@ -16,11 +16,13 @@ namespace CourseApp.API.Controllers
     [Route("api/[controller]")]
     public class AdminController : ControllerBase
     {
+        private readonly ICourseAppRepository _repo;
         private readonly DataContext _context;
         private readonly UserManager<User> _userManager;
 
-        public AdminController(DataContext context, UserManager<User> userManager)
+        public AdminController(ICourseAppRepository repo, DataContext context, UserManager<User> userManager)
         {
+            _repo = repo;
             _context = context;
             _userManager = userManager;
         }
@@ -93,11 +95,18 @@ namespace CourseApp.API.Controllers
             return Ok(unapprovedPhotosList);
         }
 
-        //[Authorize(Policy = "ModeratePhotoRole")]
-        //[HttpPut()]
-        //public async Task<IActionResult> ApprovePhoto()
-        //{
-        //
-        //}
+        [Authorize(Policy = "ModeratePhotoRole")]
+        [HttpPut("approvePhoto/{id}")]
+        public async Task<IActionResult> ApprovePhoto(int id)
+        {
+            var photoToApprove = await _repo.GetPhoto(id);
+
+            photoToApprove.IsApproved = true;
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            return BadRequest("Could not approve photo");
+        }
     }
 }
