@@ -96,7 +96,7 @@ namespace CourseApp.API.Controllers
         [HttpGet("photosForModeration")]
         public async Task<IActionResult> GetPhotosForModeration()
         {
-            var photoList = await (from photo in _context.Photos
+            var photoList = await (from photo in _context.Photos.IgnoreQueryFilters()
                                  orderby photo.DateAdded
                                  select new
                                  {
