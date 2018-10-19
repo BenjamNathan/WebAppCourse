@@ -15,7 +15,7 @@ export class AvailableShooterDetailResolver implements Resolve<User> {
     return this.userService.getUser(route.params['id']).pipe(
       catchError(error => {
         this.alertify.error('Problem retrieving data');
-        this.router.navigate(['/members']);
+        this.router.navigate(['/available-shooters']);
         return of(null);
       })
     );

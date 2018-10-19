@@ -14,7 +14,6 @@ export class PhotoManagementComponent implements OnInit {
 
   constructor(
     private adminService: AdminService,
-    private authService: AuthService,
     private alertify: AlertifyService
   ) {}
 
