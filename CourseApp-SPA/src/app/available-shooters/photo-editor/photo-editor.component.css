@@ -21,9 +21,10 @@ img.not-approved {
     position: relative;
 }
 
-.blah {
+.approve-text {
     position: absolute;
     top: 25%;
     left: 35%;
     text-align: center;
+    color: red;
 }
