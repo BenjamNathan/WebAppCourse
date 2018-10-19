@@ -21,12 +21,9 @@ img.not-approved {
     position: relative;
 }
 
-.overlay{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
 .blah {
     position: absolute;
+    top: 25%;
+    left: 35%;
+    text-align: center;
 }
