@@ -11,3 +11,22 @@ img.img-thumbnail {
 input[type=file] {
     color: transparent;
 }
+
+img.not-approved {
+    opacity: 0.3;
+}
+
+.container {
+    align-items: center;
+    position: relative;
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.blah {
+    position: absolute;
+}
