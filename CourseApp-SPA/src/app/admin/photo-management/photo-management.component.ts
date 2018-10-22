@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./photo-management.component.css']
 })
 export class PhotoManagementComponent implements OnInit {
-  photos: Photo[];
+  photos: any;
 
   constructor(
     private adminService: AdminService,
@@ -23,7 +23,7 @@ export class PhotoManagementComponent implements OnInit {
 
   getPhotosForModeration() {
     this.adminService.getPhotosForModeration().subscribe(
-      (photos: Photo[]) => {
+      (photos) => {
         this.photos = photos;
       },
       error => {

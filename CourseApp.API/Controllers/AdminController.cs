@@ -119,10 +119,9 @@ namespace CourseApp.API.Controllers
 
             photoToApprove.IsApproved = true;
 
-            if (await _repo.SaveAll())
-                return NoContent();
+            await _context.SaveChangesAsync();
 
-            return BadRequest("Could not approve photo");
+            return Ok();
         }
 
         [Authorize(Policy = "ModeratePhotoRole")]
